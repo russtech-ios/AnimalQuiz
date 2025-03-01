@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StartView.swift
 //  AnimalQuiz
 //
 //  Created by Nobuki Mitsuoka on 2025/03/01.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct StartView: View {
     @State var isShowingQuizView = false
     
     var body: some View {
@@ -25,5 +25,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    StartView()
 }
