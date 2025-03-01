@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StartView: View {
     @State var isShowingQuizView = false
-    
     var body: some View {
         VStack {
             Spacer()

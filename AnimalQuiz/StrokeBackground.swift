@@ -10,7 +10,6 @@ import SwiftUI
 struct StrokeBackground: ViewModifier {
     let strokeSize: CGFloat
     let strokeColor: Color
-    
     func body(content: Content) -> some View {
         Group {
             if strokeSize > 0 {
@@ -22,7 +21,6 @@ struct StrokeBackground: ViewModifier {
             }
         }
     }
-    
     private func strokeView(content: Content) -> some View {
         Rectangle()
             .foregroundStyle(strokeColor)

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuizView: View {
     @State var isShowingScoreView = false
-    
     var body: some View {
         VStack {
             Text("問題番号: 1/5")
