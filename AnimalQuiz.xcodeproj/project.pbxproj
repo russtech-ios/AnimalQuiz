@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		53AA04BE2D72D80400D8D0D6 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 53AA04BD2D72D7E800D8D0D6 /* .swiftformat */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		53AA04962D72854C00D8D0D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,8 @@
 		53AA04852D72854900D8D0D6 /* AnimalQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AA04952D72854C00D8D0D6 /* AnimalQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AA049F2D72854C00D8D0D6 /* AnimalQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53AA04B92D72D31900D8D0D6 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BuildTools; sourceTree = "<group>"; };
+		53AA04BD2D72D7E800D8D0D6 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +81,8 @@
 		53AA047C2D72854900D8D0D6 = {
 			isa = PBXGroup;
 			children = (
+				53AA04BD2D72D7E800D8D0D6 /* .swiftformat */,
+				53AA04B92D72D31900D8D0D6 /* BuildTools */,
 				53AA04872D72854900D8D0D6 /* AnimalQuiz */,
 				53AA04982D72854C00D8D0D6 /* AnimalQuizTests */,
 				53AA04A22D72854C00D8D0D6 /* AnimalQuizUITests */,
@@ -99,6 +107,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53AA04A92D72854C00D8D0D6 /* Build configuration list for PBXNativeTarget "AnimalQuiz" */;
 			buildPhases = (
+				53AA04BB2D72D37900D8D0D6 /* Swift Format */,
 				53AA04812D72854900D8D0D6 /* Sources */,
 				53AA04822D72854900D8D0D6 /* Frameworks */,
 				53AA04832D72854900D8D0D6 /* Resources */,
@@ -106,6 +115,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				53AA04B42D72CD0600D8D0D6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				53AA04872D72854900D8D0D6 /* AnimalQuiz */,
@@ -128,6 +138,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				53AA04B62D72CD2200D8D0D6 /* PBXTargetDependency */,
 				53AA04972D72854C00D8D0D6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -144,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53AA04AF2D72854C00D8D0D6 /* Build configuration list for PBXNativeTarget "AnimalQuizUITests" */;
 			buildPhases = (
+				53AA04BC2D72D56A00D8D0D6 /* Swift Format */,
 				53AA049B2D72854C00D8D0D6 /* Sources */,
 				53AA049C2D72854C00D8D0D6 /* Frameworks */,
 				53AA049D2D72854C00D8D0D6 /* Resources */,
@@ -151,6 +163,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				53AA04B82D72CD2900D8D0D6 /* PBXTargetDependency */,
 				53AA04A12D72854C00D8D0D6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -195,6 +208,9 @@
 			);
 			mainGroup = 53AA047C2D72854900D8D0D6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				53AA04B22D72CCDC00D8D0D6 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53AA04862D72854900D8D0D6 /* Products */;
 			projectDirPath = "";
@@ -212,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AA04BE2D72D80400D8D0D6 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +247,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53AA04BB2D72D37900D8D0D6 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat --lint --lenient \"$SRCROOT\"\n";
+		};
+		53AA04BC2D72D56A00D8D0D6 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		53AA04812D72854900D8D0D6 /* Sources */ = {
@@ -265,6 +323,18 @@
 			isa = PBXTargetDependency;
 			target = 53AA04842D72854900D8D0D6 /* AnimalQuiz */;
 			targetProxy = 53AA04A02D72854C00D8D0D6 /* PBXContainerItemProxy */;
+		};
+		53AA04B42D72CD0600D8D0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 53AA04B32D72CD0600D8D0D6 /* SwiftLintBuildToolPlugin */;
+		};
+		53AA04B62D72CD2200D8D0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 53AA04B52D72CD2200D8D0D6 /* SwiftLintBuildToolPlugin */;
+		};
+		53AA04B82D72CD2900D8D0D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 53AA04B72D72CD2900D8D0D6 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -306,7 +376,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -369,7 +439,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -412,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -441,7 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -459,7 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuizTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimalQuiz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnimalQuiz";
 			};
@@ -478,7 +548,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuizTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimalQuiz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnimalQuiz";
 			};
@@ -495,7 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuizUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = AnimalQuiz;
 			};
@@ -512,7 +582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.russtech.AnimalQuizUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = AnimalQuiz;
 			};
@@ -558,6 +628,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		53AA04B22D72CCDC00D8D0D6 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.58.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		53AA04B32D72CD0600D8D0D6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AA04B22D72CCDC00D8D0D6 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		53AA04B52D72CD2200D8D0D6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AA04B22D72CCDC00D8D0D6 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		53AA04B72D72CD2900D8D0D6 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AA04B22D72CCDC00D8D0D6 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53AA047D2D72854900D8D0D6 /* Project object */;
 }
