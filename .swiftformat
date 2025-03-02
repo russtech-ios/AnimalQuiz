@@ -1,2 +1,3 @@
 --swiftversion 6.0.3
 --languagemode 6
+--disable trailingCommas
