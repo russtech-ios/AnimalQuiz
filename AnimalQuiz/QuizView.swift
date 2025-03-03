@@ -16,6 +16,7 @@ struct QuizItem {
 struct QuizView: View {
     @State var isShowingScoreView = false
     @State var isShowingResultSymbol = false
+    @State var isAnswerCorrect = false
     let choices = ["ライオン", "ウサイン・ボルト", "チーター", "馬"]
     let quizItems = [
         QuizItem(
@@ -69,8 +70,10 @@ struct QuizView: View {
                         print("正解は\(quizItems[1].correctAnswer)です。")
                         if choice == quizItems[1].correctAnswer {
                             print("正解です。")
+                            isAnswerCorrect = true
                         } else {
                             print("不正解です。")
+                            isAnswerCorrect = false
                         }
                         isShowingResultSymbol = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -92,10 +95,10 @@ struct QuizView: View {
             }
             .padding()
             if isShowingResultSymbol {
-                Text("○")
+                Text(isAnswerCorrect ? "○" : "×")
                     .font(.system(size: 1000))
                     .minimumScaleFactor(0.1)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(isAnswerCorrect ? .green : .red)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black.opacity(0.5))
