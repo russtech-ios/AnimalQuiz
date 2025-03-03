@@ -15,6 +15,7 @@ struct QuizItem {
 
 struct QuizView: View {
     @State var isShowingScoreView = false
+    @State var isShowingResultSymbol = false
     let choices = ["ライオン", "ウサイン・ボルト", "チーター", "馬"]
     let quizItems = [
         QuizItem(
@@ -44,41 +45,62 @@ struct QuizView: View {
         )
     ]
     var body: some View {
-        VStack {
-            Text("問題番号: 1/5")
-                .font(.headline)
-                .padding()
-                .background(Color.originalGreen)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            Text(quizItems[0].question)
-                .font(.title)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.originalLightGreen)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.originalGreen, lineWidth: 5)
-                )
-                .frame(maxHeight: .infinity)
-            ForEach(quizItems[0].choices, id: \.self) { choice in
-                Button {
-                    isShowingScoreView = true
-                } label: {
-                    Text(choice)
-                        .font(.title.bold())
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.originalSkin)
-                        .foregroundStyle(.originalBrown)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                .fullScreenCover(isPresented: $isShowingScoreView) {
-                    ScoreView()
+        ZStack {
+            VStack {
+                Text("問題番号: 1/5")
+                    .font(.headline)
+                    .padding()
+                    .background(Color.originalGreen)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                Text(quizItems[1].question)
+                    .font(.title)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.originalLightGreen)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.originalGreen, lineWidth: 5)
+                    )
+                    .frame(maxHeight: .infinity)
+                ForEach(quizItems[1].choices, id: \.self) { choice in
+                    Button {
+                        print("\(choice)を選択しました。")
+                        print("正解は\(quizItems[1].correctAnswer)です。")
+                        if choice == quizItems[1].correctAnswer {
+                            print("正解です。")
+                        } else {
+                            print("不正解です。")
+                        }
+                        isShowingResultSymbol = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isShowingResultSymbol = false
+                        }
+                    } label: {
+                        Text(choice)
+                            .font(.title.bold())
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.originalSkin)
+                            .foregroundStyle(.originalBrown)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    .fullScreenCover(isPresented: $isShowingScoreView) {
+                        ScoreView()
+                    }
                 }
             }
+            .padding()
+            if isShowingResultSymbol {
+                Text("○")
+                    .font(.system(size: 1000))
+                    .minimumScaleFactor(0.1)
+                    .foregroundStyle(.red)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.5))
+            }
         }
-        .padding()
         .backgroundImage()
     }
 }
