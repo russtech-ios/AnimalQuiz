@@ -11,9 +11,21 @@ struct ScoreView: View {
     var body: some View {
         VStack {
             Text("5問中3問正解！")
-            Button("トップへ") {
+                .font(.system(size: 40).bold())
+                .foregroundStyle(.originalYellow)
+                .stroke(color: .originalGreen, width: 5)
+                .frame(maxHeight: .infinity)
+            Button {
+                
+            } label: {
+                Image(.topButton)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
             }
         }
+        .padding()
+        .backgroundImage()
     }
 }
 
