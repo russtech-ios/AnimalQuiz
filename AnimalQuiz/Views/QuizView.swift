@@ -7,19 +7,13 @@
 
 import SwiftUI
 
-struct QuizItem {
-    let question: String
-    var choices: [String]
-    let correctAnswer: String
-}
-
 struct QuizView: View {
     @State var isShowingScoreView = false
     @State var isShowingResultSymbol = false
     @State var isAnswerCorrect = false
     @State var currentQuizIndex = 0
     @State var correctCount = 0
-    let quizItems = QuizData.quizItems
+    @Binding var quizItems: [QuizItem]
     var body: some View {
         ZStack {
             VStack {
@@ -86,5 +80,5 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView()
+    QuizView(quizItems: .constant(QuizData.knowledgeQuestions))
 }
