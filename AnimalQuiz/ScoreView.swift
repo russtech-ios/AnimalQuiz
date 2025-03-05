@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ScoreView: View {
+    let scoreText: String
     var body: some View {
         VStack {
-            Text("5問中3問正解！")
+            Text(scoreText)
                 .font(.system(size: 40).bold())
                 .foregroundStyle(.originalYellow)
                 .stroke(color: .originalGreen, width: 5)
                 .frame(maxHeight: .infinity)
             Button {
-                
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                windowScene?.windows.first?.rootViewController?.dismiss(animated: true)
             } label: {
                 Image(.topButton)
                     .resizable()
@@ -30,5 +32,5 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView()
+    ScoreView(scoreText: "")
 }
