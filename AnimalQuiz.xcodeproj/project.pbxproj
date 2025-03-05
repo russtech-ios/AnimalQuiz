@@ -18,6 +18,7 @@
 		53AA05242D7809E500D8D0D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AA051B2D7809E500D8D0D6 /* Assets.xcassets */; };
 		53AA05262D780D2400D8D0D6 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA05252D780D2400D8D0D6 /* QuizData.swift */; };
 		53AA05292D7812A700D8D0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53AA05282D7812A700D8D0D6 /* LaunchScreen.storyboard */; };
+		53AA052B2D78145F00D8D0D6 /* GenreSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA052A2D78145F00D8D0D6 /* GenreSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		53AA051B2D7809E500D8D0D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AA05252D780D2400D8D0D6 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
 		53AA05282D7812A700D8D0D6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53AA052A2D78145F00D8D0D6 /* GenreSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -154,6 +156,7 @@
 				53AA05172D7809E500D8D0D6 /* ScoreView.swift */,
 				53AA05182D7809E500D8D0D6 /* StartView.swift */,
 				53AA05192D7809E500D8D0D6 /* StrokeBackground.swift */,
+				53AA052A2D78145F00D8D0D6 /* GenreSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				53AA051E2D7809E500D8D0D6 /* View+.swift in Sources */,
 				53AA051F2D7809E500D8D0D6 /* QuizView.swift in Sources */,
 				53AA05202D7809E500D8D0D6 /* ScoreView.swift in Sources */,
+				53AA052B2D78145F00D8D0D6 /* GenreSelectionView.swift in Sources */,
 				53AA05212D7809E500D8D0D6 /* StartView.swift in Sources */,
 				53AA05222D7809E500D8D0D6 /* StrokeBackground.swift in Sources */,
 			);
