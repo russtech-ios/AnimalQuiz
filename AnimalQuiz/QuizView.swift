@@ -18,6 +18,7 @@ struct QuizView: View {
     @State var isShowingResultSymbol = false
     @State var isAnswerCorrect = false
     @State var currentQuizIndex = 0
+    @State var correctCount = 0
     let quizItems = [
         QuizItem(
             question: "次のうち、世界で最も早く走る動物はどれですか？",
@@ -71,6 +72,7 @@ struct QuizView: View {
                         if choice == quizItems[currentQuizIndex].correctAnswer {
                             print("正解です。")
                             isAnswerCorrect = true
+                            correctCount += 1
                         } else {
                             print("不正解です。")
                             isAnswerCorrect = false
@@ -94,7 +96,7 @@ struct QuizView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     .fullScreenCover(isPresented: $isShowingScoreView) {
-                        ScoreView()
+                        ScoreView(scoreText: "\(quizItems.count)問中\(correctCount)問正解！")
                     }
                 }
             }
