@@ -48,7 +48,7 @@ struct QuizView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("問題番号: 1/5")
+                Text("問題番号: \(currentQuizIndex + 1)/\(quizItems.count)")
                     .font(.headline)
                     .padding()
                     .background(Color.originalGreen)
