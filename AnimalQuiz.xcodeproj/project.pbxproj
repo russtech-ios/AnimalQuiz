@@ -56,6 +56,7 @@
 		53AA05282D7812A700D8D0D6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53AA052A2D78145F00D8D0D6 /* GenreSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSelectionView.swift; sourceTree = "<group>"; };
 		53AA052D2D781C1700D8D0D6 /* QuizItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizItem.swift; sourceTree = "<group>"; };
+		53AA05472D789CF900D8D0D6 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BuildTools; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -99,6 +100,7 @@
 		53AA047C2D72854900D8D0D6 = {
 			isa = PBXGroup;
 			children = (
+				53AA05472D789CF900D8D0D6 /* BuildTools */,
 				53AA04BD2D72D7E800D8D0D6 /* .swiftformat */,
 				53AA051C2D7809E500D8D0D6 /* AnimalQuiz */,
 				53AA04982D72854C00D8D0D6 /* AnimalQuizTests */,
