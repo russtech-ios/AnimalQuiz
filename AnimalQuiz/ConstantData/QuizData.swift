@@ -5,7 +5,7 @@
 //  Created by Nobuki Mitsuoka on 2025/03/05.
 //
 
-struct QuizData {
+enum QuizData {
     static let quizItems = [
         QuizItem(
             question: "次のうち、世界で最も早く走る動物はどれですか？",
