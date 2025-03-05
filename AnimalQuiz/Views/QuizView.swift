@@ -23,16 +23,23 @@ struct QuizView: View {
                     .background(Color.originalGreen)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                Text(quizItems[currentQuizIndex].question)
-                    .font(.title)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.originalLightGreen)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.originalGreen, lineWidth: 5)
-                    )
-                    .frame(maxHeight: .infinity)
+                VStack {
+                    Text(quizItems[currentQuizIndex].question)
+                        .font(.title)
+                    quizItems[currentQuizIndex].questionImage?
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.originalLightGreen)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.originalGreen, lineWidth: 5)
+                )
+                .frame(maxHeight: .infinity)
+
                 ForEach(quizItems[currentQuizIndex].choices, id: \.self) { choice in
                     Button {
                         if choice == quizItems[currentQuizIndex].correctAnswer {
@@ -80,5 +87,5 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView(quizItems: .constant(QuizData.knowledgeQuestions))
+    QuizView(quizItems: .constant(QuizData.silhouetteQuestions))
 }
