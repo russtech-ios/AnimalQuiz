@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct GenreSelectionView: View {
+    @State var isShowingQuizView = false
     var body: some View {
         VStack {
             Button {
-                
+                isShowingQuizView = true
             } label: {
                 Text("動物知識クイズ")
                     .font(.title.bold())
@@ -22,7 +23,7 @@ struct GenreSelectionView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             Button {
-                
+                isShowingQuizView = true
             } label: {
                 Text("動物シルエットクイズ")
                     .font(.title.bold())
@@ -33,7 +34,7 @@ struct GenreSelectionView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             Button {
-                
+                isShowingQuizView = true
             } label: {
                 Text("部分画像クイズ")
                     .font(.title.bold())
@@ -46,6 +47,9 @@ struct GenreSelectionView: View {
         }
         .padding()
         .backgroundImage()
+        .fullScreenCover(isPresented: $isShowingQuizView) {
+            QuizView()
+        }
     }
 }
 
